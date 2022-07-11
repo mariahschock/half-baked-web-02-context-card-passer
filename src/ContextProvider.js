@@ -13,31 +13,31 @@ export function ContextProvider({ children }) {
   const [to, setTo] = useState(1);
 
 
-  function findCardIndex(value, suit, cards) {
-    return cards.findIndex(card => card.value === value && card.suit === suit);
-  }
+//   function findCardIndex(value, suit, cards) {
+//     return cards.findIndex(card => card.value === value && card.suit === suit);
+//   }
 
-  function passCard(card) {
-    const playerHands = [playerOneHand, playerTwoHand, playerThreeHand];
-    const playerHandSetFunctions = [setPlayerOneHand, setPlayerTwoHand, setPlayerThreeHand];
+//   function passCard(card) {
+//     const playerHands = [playerOneHand, playerTwoHand, playerThreeHand];
+//     const playerHandSetFunctions = [setPlayerOneHand, setPlayerTwoHand, setPlayerThreeHand];
 
-    // arrays start at zero, but our players start at 1 :shrug:
-    const toHand = playerHands[to - 1] || deck;
-    const fromHand = playerHands[from - 1] || deck;
+//     // arrays start at zero, but our players start at 1 :shrug:
+//     const toHand = playerHands[to - 1] || deck;
+//     const fromHand = playerHands[from - 1] || deck;
 
-    const toSetFunction = playerHandSetFunctions[to - 1] || setDeck;
-    const fromSetFunction = playerHandSetFunctions[from - 1] || setDeck;
+//     const toSetFunction = playerHandSetFunctions[to - 1] || setDeck;
+//     const fromSetFunction = playerHandSetFunctions[from - 1] || setDeck;
 
-    const cardToMoveIndex = findCardIndex(card.value, card.suit, fromHand);
-    const [cardToMove] = fromHand.splice(cardToMoveIndex, 1);
+//     const cardToMoveIndex = findCardIndex(card.value, card.suit, fromHand);
+//     const [cardToMove] = fromHand.splice(cardToMoveIndex, 1);
 
-    toHand.push(cardToMove);
+//     toHand.push(cardToMove);
 
-    toSetFunction([...toHand]);
-    fromSetFunction([...fromHand]);
+//     toSetFunction([...toHand]);
+//     fromSetFunction([...fromHand]);
 
-    setSelectedCard(null);
-  }
+//     setSelectedCard(null);
+//   }
 
   const stateAndSetters = {
     deck, setDeck,
@@ -47,7 +47,7 @@ export function ContextProvider({ children }) {
     playerThreeHand, setPlayerThreeHand,
     from, setFrom,
     to, setTo,
-    passCard
+    // passCard
   };
 
   return <CardContext.Provider value={stateAndSetters}>

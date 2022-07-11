@@ -11,6 +11,7 @@ export default function ExecutePassButton() {
     playerThreeHand, setPlayerThreeHand,
     from,
     to,
+    
   } = useCardContext();
 
   function findCardIndex(value, suit, cards) {
@@ -36,7 +37,7 @@ export default function ExecutePassButton() {
     toSetFunction([...toHand]);
     fromSetFunction([...fromHand]);
     
-    setSelectedCard(null);
+    setSelectedCard();
   }
   return (
     <div className='execute-button' onClick={() => passCard(selectedCard)}>
