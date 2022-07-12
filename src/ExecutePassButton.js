@@ -14,10 +14,6 @@ export default function ExecutePassButton() {
     
   } = useCardContext();
 
-  function findCardIndex(value, suit, cards) {
-    return cards.findIndex(card => card.value === value && card.suit === suit);
-  }
-
   function passCard(card) {
     const playerHands = [playerOneHand, playerTwoHand, playerThreeHand];
     const playerHandSetFunctions = [setPlayerOneHand, setPlayerTwoHand, setPlayerThreeHand];
@@ -36,8 +32,13 @@ export default function ExecutePassButton() {
     toSetFunction([...toHand]);
     fromSetFunction([...fromHand]);
     
-    setSelectedCard();
+    setSelectedCard(null);
   }
+
+  function findCardIndex(value, suit, cards) {
+    return cards.findIndex(card => card.value === value && card.suit === suit);
+  }
+
   return (
     <div className='execute-button' onClick={() => passCard(selectedCard)}>
         Pass <Card card={selectedCard} /> from {from} to {to}

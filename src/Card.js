@@ -9,8 +9,8 @@ const suitMap = {
 };
 
 
-export default function Card({ card }) {
-  const { selectedCard, setSelectedCard, setFrom, player } = useCardContext();
+export default function Card({ card, player }) {
+  const { selectedCard, setSelectedCard, setFrom } = useCardContext();
 
   function handleCardClick() {
     setFrom(player);
